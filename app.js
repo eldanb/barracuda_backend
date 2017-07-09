@@ -21,8 +21,17 @@ const Datastore = require('@google-cloud/datastore');
 const app = express();
 const datastore = Datastore();
 
-app.get('/', (req, res) => {
-  res.status(200).send('Hello, world 3!!!').end();
+app.get('/api/v1/qitem/\*', (req, res) => {
+    var itemBarcode = req.path.split('/').pop();
+    console.log("Barcode", itemBarcode);
+    datastore.get(datastore.key(["CatalogProduct", itemBarcode]), function(err, entity) {
+        if(!err) {
+            res.status(200).send(JSON.stringify(entity)).end();
+        } else
+        {
+            res.status(404).send(JSON.stringify(err)).end();
+        }
+    })
 });
 
 app.post('/admin/import', (req, res) => {
