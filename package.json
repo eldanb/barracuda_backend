@@ -1,0 +1,40 @@
+{
+  "name": "barracuda-backend",
+  "description": "Backend services for barracuda",
+  "version": "0.0.1",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "Eldan Ben-Haim.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eldanb/barracuda_backend.git"
+  },
+  "engines": {
+    "node": ">=4.3.2"
+  },
+  "scripts": {
+    "deploy": "gcloud app deploy",
+    "start": "node app.js",
+    "lint": "samples lint",
+    "pretest": "npm run lint",
+    "system-test": "samples test app",
+    "test": "npm run system-test",
+    "e2e-test": "samples test deploy"
+  },
+  "dependencies": {
+    "@google-cloud/datastore": "1.0.2",
+    "express": "4.15.3"
+  },
+  "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "1.4.15"
+  },
+  "cloud-repo-tools": {
+    "test": {
+      "app": {
+        "msg": "Hello, world!"
+      }
+    },
+    "requiresKeyFile": true,
+    "requiresProjectId": true
+  }
+}
