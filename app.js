@@ -22,7 +22,7 @@ const app = express();
 const datastore = Datastore();
 
 app.get('/', (req, res) => {
-  res.status(200).send('Hello, world!').end();
+  res.status(200).send('Hello, world 3!!!').end();
 });
 
 app.post('/admin/import', (req, res) => {
@@ -61,10 +61,11 @@ app.post('/admin/import', (req, res) => {
                 datastore.insert(savedObjects);
                 
                 bulk = [];
-
-                break;
             }
         }
+
+        res.status(200).send('Done!!!').end();
+        
     });  
 });
 
