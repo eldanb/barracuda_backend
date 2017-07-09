@@ -50,7 +50,7 @@ app.post('/admin/import', (req, res) => {
             }
 
             bulk.push(lineobj);
-            if(!lines.length || bulk.length>512) {
+            if(!lines.length || bulk.length>256) {
                 var savedObjects = bulk.map(function(l) {
                     return {
                         key: datastore.key(["CatalogProduct", l.barcode]),
