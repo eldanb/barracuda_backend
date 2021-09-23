@@ -12,12 +12,6 @@
 # limitations under the License.
 
 # [START app_yaml]
-runtime: python27
-api_version: 1
-threadsafe: true
-
-handlers:
-- url: /.*
-  script: main.app
+runtime: python39
 
 # [END app_yaml]
